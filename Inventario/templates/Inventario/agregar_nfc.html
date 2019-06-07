@@ -1,0 +1,32 @@
+{% extends 'base_pagina.html' %}
+
+{% block contenido %}
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <strong>Codigo animal</strong> 
+        </div>
+        <div class="card-body card-block">
+            <form method="POST"> {% csrf_token %}              
+                
+                <input type="text" class="form-class" name="diio" id="diio" value="{{nfc}}">
+                <!-- <input type="text" class="form-class" name="diio" id="diio" value="{{nfc}}"> -->
+                <!-- <select id="xd" name="xd">
+
+                {% for Animal in object_list %}
+   <option value="{{Animal.id}}"></option>     
+       {{Animal.especie.nombre}}
+   </option>
+{% endfor %}
+</select> -->
+        </div>
+        <div class="card-footer">
+                
+                     <a  class="btn btn-primary btn-sm" href="{% url 'ganaderia:agregar_an'%}">Guardar</a> 
+                <a  class="btn btn-danger btn-sm" href="{% url 'ganaderia:nfc'%}">RFID</a> 
+               
+            </form>
+            </div>
+    </div>    
+</div>
+{% endblock %}

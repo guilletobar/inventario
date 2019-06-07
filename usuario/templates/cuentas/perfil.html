@@ -1,0 +1,87 @@
+{% extends 'base_pagina.html' %}
+
+{% load staticfiles %}
+
+{% block contenido %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Imformación perfil</strong> 
+                </div>
+                <div class="card-body card-block">
+                    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label class=" form-control-label">Usuario</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <p class="form-control-static">{{user.username}}</p>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label class=" form-control-label">Rut</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <p class="form-control-static">{{user.userprofile.rut}}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label class=" form-control-label">Nombre</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <p class="form-control-static">{{user.first_name}}</p>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label class=" form-control-label">Apellidos</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <p class="form-control-static">{{ user.last_name}}</p>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label class=" form-control-label">Email</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <p class="form-control-static">{{user.email}}</p>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label class=" form-control-label">Descripcion</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <p class="form-control-static">{{user.userprofile.descripcion}}</p>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label class=" form-control-label">Telefono</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <p class="form-control-static">{{user.userprofile.telefono}}</p>
+                            </div>
+                        </div>
+
+                </div>
+                <div class="card-footer">
+                  
+                        <a href="{% url 'cuentas:editar_perfil' %}"> Editar</a> 
+                      
+                    </button>
+
+                </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

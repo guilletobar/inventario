@@ -1,0 +1,67 @@
+{% extends 'base_pagina.html' %}
+
+{% block contenido %}
+<div class="section__content section__content--p30">
+    <div class="row m-t-30">
+        <div class="col-md-12">
+            <!-- DATA TABLE-->
+            <div class="table-responsive m-b-40">
+                <table class="table table-borderless table-data3">
+                    <thead>
+                        <tr>    
+                            <th>Nombre</th>                    
+                            <th>Rut</th>
+                            <th>Correo</th>
+                            <th>Direccion</th>
+                                                 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if   object_list %}
+                        {% for listar in object_list %}
+                        <tr>
+                            <td>{{ listar.nombre }}</td>
+                            <td>{{ listar.rut }} </td>
+                            <td>{{ listar.correo }} </td>
+                            <td>{{ listar.direccion }} </td>
+                            
+                            <td>
+                        
+                            </td>
+                        </tr>    
+                        {% endfor %}     
+                        {% else %}   
+                        <tr>                          
+                            <td>no hay registros  </td>   
+                            <td>no hay registros   </td>   
+                            <td>no hay registros   </td>
+                            <td>no hay registros   </td>     
+                               
+                    </tr>
+                    {% endif %}
+                    </tbody>
+                </table>
+
+                <ul class="pagination pagination-sm">
+                        <li class="page-item">
+                            {% if page_obj.has_previous %}
+                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">listado anterior</a>
+                            {% endif %}
+                            </li>
+                            <li class="page-link">
+                                <samp>
+                                Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.                                   
+                            </span>  
+                        <li class="page-item">
+                            {% if page_obj.has_next %}                             
+                            <a class="page-link" href="?page={{ page_obj.next_page_number }}">Listado siguente</a> 
+                            {% endif %}
+                        </li>
+                </ul>
+            </div>
+            <!-- END DATA TABLE-->
+        </div>
+
+    </div>
+</div>
+{% endblock %}
